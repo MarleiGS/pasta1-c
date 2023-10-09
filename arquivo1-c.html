@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS#11a: Sistema de Multa</title>
+    <style>
+        body {
+            background-color:#dcdcdc;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            background-color: #b9eee9;/*Cor de fundo no texto*/
+            width: 500px;/*Largura do texto no site*/
+            padding: 10px;/*Mostra uma borda do texto*/
+            margin: auto;/*Deixa o texto no centro do site, independente do tamanho da tela*/
+            border-radius: 15px;/*Mostra os cantos arredondados*/
+            box-shadow: 7px 8px 12px #1f6962;/*
+            1º parâmetro 7px: qto a sombra vai para o lado;
+            2º parâmetro 8px: qto a sombra vai para baixo;
+            3º parâmetro 12px: qto a sombra vai espalhar;
+            4º parâmetro: Cor e Transparência.*/
+        }
+        table, th, td {
+            border: 1px solid;            
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Módulo D - Aula 11a: Sistema de Multas<br><a href="js-ex011.html" target="_self" rel="prev"><button type="button">Voltar</button></a><hr></h1>
+    <!-- Este código está na tabela de TESTE abaixo.
+        Não funciona dois códigos iguais no mesmo HTML, funciona somente o primeiro código, ou seja, o que estiver escrito em primeiro.
+
+    <main>
+        <h2 style="text-align: center;">1. getElementById</h2>
+        Velocidade do veículo: <input type="number" name="txtvel" id="txtvel"> Km/h
+        <input type="button" value="Verificar" onclick="calcular()">
+        <div id="res"></div>
+    </main>
+    -->
+    <h1></h1>
+    <p style="text-align: center; font-size: 2em;"><strong>1. getElementById</strong> está na tabela de TESTES abaixo.</p>
+    <main>
+        <h2 style="text-align: center;">2. querySelector: div#id</h2>
+        Velocidade do veículo: <input type="number" name="txtvel1" id="txtvel1"> Km/h
+        <input type="button" value="Verificar" onclick="calcular1()">
+        <div id="res1"></div>
+    </main>
+    <h1></h1>
+    <main>
+        <h2 style="text-align: center;">3. querySelector: div.class</h2>
+        Velocidade do veículo: <input type="number" name="txtvel2" id="txtvel2"> Km/h
+        <input type="button" value="Verificar" onclick="calcular2()">
+        <div class="res2"></div>
+    </main>    
+    <h2>Notas:</h2>
+    <p>- <strong>name="txtvel"</strong> é muito útil em outras linguagens, como o PHP, por isso não iremos retirar da linha de código. Mas iremos trabalhar com o <strong>id="txtvel"</strong>.</p>
+    <p>- <strong>onclick="calcular()"</strong> é a minha ação.</p>
+    <p>- Em JavaScript criamos a variável <strong>txtv</strong> que será a ligação entre o JavaScript com a caixa de texto em HTML que chamamos de <strong>txtvel</strong>.</p>
+    <p>- res.innerHTML += `Dirija...`: O sinal "+" (mais) significa concatenação neste caso.</p>
+    <table>
+        <tr>
+            <th colspan="3">Códigos</th>
+        </tr>
+        <tr style="text-align: center;">
+            <td>Médodo</td>
+            <td>HTML</td>
+            <td>JavaScript</td>
+        </tr>
+        <tr>
+            <th>getElementById</th>
+            <td style="padding: 5px;">
+                <img src="midias/js-ex011m.png" alt="codigo" width="500px">
+            </td>
+            <td style="padding: 10px;"><pre><code>                
+function calcular() {
+    var txtv = window.document.getElementById('txtvel')
+    var res = window.document.getElementById('res')
+    var vel = Number(txtv.value)
+    res.innerHTML = `&lt;p&gt;Sua velocidade atual é de ${vel} Km/h.`.&lt;p&gt;
+    if (vel > 60) {
+        res.innerHTML += "&lt;p&gt;Você está MULTADO por excesso de 
+        velocidade!!&lt;p&gt;"
+    }
+    res.innerHTML += `&lt;p&gt;Dirija sempre com cinto de segurança!&lt;p&gt;`
+}                
+            </code></pre></td>
+        </tr>
+        <tr>
+            <th>querySelector: div#id</th>
+            <td style="padding: 5px;">
+                <img src="midias/js-ex011n.png" alt="codigo" width="500px">
+            </td>
+            <td style="padding: 10px;"><pre><code>                    
+function calcular1() {
+    var txtv1 = window.document.querySelector('input#txtvel1')
+    var res1 = window.document.querySelector('div#res1')
+    var vel1 = Number(txtv1.value)
+    res1.innerHTML = `&lt;p&gt;Sua velocidade atual é de ${vel1} Km/h.&lt;p&gt;`
+    if (vel1 > 60) {
+        res1.innerHTML += "&lt;p&gt;Você está MULTADO por excesso de 
+        velocidade!!&lt;p&gt;"
+    }
+    res1.innerHTML += `&lt;p&gt;Dirija sempre com cinto de segurança!&lt;p&gt;`
+}
+            </code></pre></td>            
+        </tr>
+        <tr>
+            <th style="padding: 5px;">querySelector: div.class</th>
+            <td style="padding: 5px;">
+                <img src="midias/js-ex011o.png" alt="codigo" width="500px">
+            </td>
+            <td style="padding: 10px;"><pre><code>
+    function calcular2() {
+        var txtv2 = window.document.querySelector('input#txtvel2')
+        var res2 = window.document.querySelector('div.res2')
+        var vel2 = Number(txtv2.value)
+        res2.innerHTML = `&lt;p&gt;Sua velocidade atual é de ${vel2} Km/h.&lt;p&gt;`
+        if (vel2 > 60) {
+            res2.innerHTML += "&lt;p&gt;Você está MULTADO por excesso de
+            velocidade!!&lt;p&gt;"
+        }
+        res2.innerHTML += `&lt;p&gt;Dirija sempre com cinto de segurança!&lt;p&gt;`
+    }
+            </code></pre></td>            
+        </tr>
+    </table>
+    <h1 style="color: red;">TESTE:</h1>
+    <table>
+        <tr>
+            <th colspan="2">1. getElementById</th>
+        </tr>        
+        <tr>
+            <th style="text-align: center;">Método</th>
+            <td style="padding: 15px;">
+                <main>
+                    <h2 style="text-align: center;">1. getElementById</h2>
+                    Velocidade do veículo: <input type="number" name="txtvel" id="txtvel"> Km/h
+                    <input type="button" value="Verificar" onclick="calcular()">
+                    <div id="res"></div>
+                </main>
+                <p>1. Não funciona dois códigos iguais no mesmo HTML, funciona somente o primeiro código, ou seja, o que estiver escrito em primeiro.</p>
+                <p>2. Foi inserido calculo da diferença entre velocidade digitada e velocidade permitida (60,0 Km/h).</p>
+            </td>
+        </tr>
+        <tr>
+            <th style="text-align: center;">Código HTML</th>
+            <td style="padding: 5px;">
+                <img src="midias/js-ex011m.png" alt="codigo" width="500px">
+            </td>
+        </tr>
+        <tr>
+            <th style="text-align: center;">Código JavaScript</th>
+            <td style="padding: 10px;"><pre><code>                              
+function calcular() {
+    var txtv = window.document.getElementById('txtvel')
+    var res = window.document.getElementById('res')
+    var vel = Number(txtv.value)
+    var dif = vel - 60
+    res.innerHTML = `&lt;p&gt;Sua velocidade atual é de ${vel} Km/h.`.&lt;p&gt;
+    if (vel > 60) {
+        res.innerHTML += "&lt;p&gt;Você está MULTADO por excesso de velocidade!!&lt;p&gt;"
+        res.innerHTML += `&lt;p&gt;Você excedeu a velocidade em ${dif} Km/h.&lt;p&gt;`
+    }
+    res.innerHTML += `&lt;p&gt;Dirija sempre com cinto de segurança!&lt;p&gt;`
+}                
+            </code></pre></td>
+        </tr>        
+    </table>
+    <script>
+        //1. getElementById
+        function calcular() {
+            var txtv = window.document.getElementById('txtvel')
+            // É possível utilizar querySelector('input#txtvel')
+            // txtv é a ligação entre o JavaScript e o HTML COM txtvel
+            var res = window.document.getElementById('res')
+            var vel = Number(txtv.value)
+            var dif = vel - 60
+            res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel} Km/h</strong>.</p>`
+            if (vel > 60) {
+                res.innerHTML += "<p>Você está <strong>MULTADO</strong> por excesso de velocidade!!</p>"
+                res.innerHTML += `<p>Você excedeu a velocidade em ${dif} Km/h.</p>`
+                // Não pode ser somente "=" (recebe), pois se não apagará a mensagem anterior.
+            }
+            res.innerHTML += `<p>Dirija sempre com cinto de segurança!</p>`
+        }
+        //2. querySelector: div#id
+        function calcular1() {
+            var txtv1 = window.document.querySelector('input#txtvel1')
+            var res1 = window.document.querySelector('div#res1')
+            var vel1 = Number(txtv1.value)
+            res1.innerHTML = `<p>Sua velocidade atual é de <strong>${vel1} Km/h</strong>.</p>`
+            if (vel1 > 60) {
+                res1.innerHTML += "<p>Você está <strong>MULTADO</strong> por excesso de velocidade!!</p>"
+            }
+            res1.innerHTML += `<p>Dirija sempre com cinto de segurança!</p>`
+        }
+        //3. querySelector: div.class
+        function calcular2() {
+            var txtv2 = window.document.querySelector('input#txtvel2')            
+            var res2 = window.document.querySelector('div.res2')
+            var vel2 = Number(txtv2.value)
+            res2.innerHTML = `<p>Sua velocidade atual é de <strong>${vel2} Km/h</strong>.</p>`
+            if (vel2 > 60) {
+                res2.innerHTML += "<p>Você está <strong>MULTADO</strong> por excesso de velocidade!!</p>"
+            }
+            res2.innerHTML += `<p>Dirija sempre com cinto de segurança!</p>`
+        }
+    </script>
+</body>
+</html>
