@@ -1,5 +1,6 @@
 # pasta1-c
  Pasta1 diretorio C
+ Inserir links uteis!
 
 Inserir a seguinte mensagem:
 "Estou aprendendo a criar sites e agora vou gerenciar meus respositórios!"
